@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            background-color: cornflowerblue;
+            text-align: center;
+            flex-direction: column;
+            padding-top: 2%;
+        }
+        #container {
+            width: 400px;
+            height: 400px;
+            background: #E4FDE1;
+            margin: 10px auto;
+        }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .block {
+            background: gold;
+            width: 30%;
+            height: 120px;
+            border: 1px solid #028090;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 2rem;
+            padding-top: 3rem;
+        }
+        .empty {
+            background: lightgrey;
+            border: 2px solid white;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: chocolate;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sliding Tile Puzzle</h1>
+    <div id="container">
+        <div class="grid">
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+            <div class="block"></div>
+        </div>
+    </div>
+    <p>Moves: <span id="move-counter">0</span></p>
+    <button id="reset-button">Reset</button>
+    <div id="startGameModal" class="modal">
+        <div class="modal-content">
+            <h2>WELCOME to the Puzzle Game</h2>
+            <button id="modal-start-button">Start Game</button>
+        </div>
+    </div>
+    <script>
+         const modalButton = document.getElementById("modal-start-button");
+        const startGameModal = document.getElementById("startGameModal");
+        const moveCounter = document.getElementById("move-counter");
+        let moves = 0;
+        modalButton.addEventListener("click", () => {
+            startGameModal.style.display = "none"; 
+        });
+        const resetButton = document.getElementById("reset-button");
+        resetButton.addEventListener("click", () => {
+            moves = 0;
+            moveCounter.textContent = moves; 
+        });
+        const blocks = document.querySelectorAll(".block");
+        blocks.forEach((block) => {
+            block.addEventListener("click", () => {
+                
+            });
+        });
+    </script>
+</body>
+</html>
